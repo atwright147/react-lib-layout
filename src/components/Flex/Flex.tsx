@@ -1,13 +1,8 @@
-import { FC } from 'react';
+import type { ComponentPropsWithRef, FC } from 'react';
+import type { FlexProps } from '../../types/flex';
 
-interface Props {
-  // Define your props here
-}
+type Props = ComponentPropsWithRef<'div'> & FlexProps;
 
-export const Flex: FC<Props> = ({ /* props */ }) => {
-  return (
-    <div>
-      {/* Your component implementation */}
-    </div>
-  );
+export const Flex: FC<Props> = () => {
+  return <div>{/* Your component implementation */}</div>;
 };
