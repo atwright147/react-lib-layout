@@ -18,7 +18,7 @@ export type Align =
   | 'space-between'
   | 'stretch';
 
-export type FlexWrap = 'no-wrap' | 'wrap' | 'wrap-reverse';
+export type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
 
 export type FlexProps = Partial<{
   alignContent: Align;

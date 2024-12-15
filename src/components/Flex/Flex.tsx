@@ -1,8 +1,17 @@
-import type { ComponentPropsWithRef, FC } from 'react';
+import { type ComponentPropsWithRef, forwardRef } from 'react';
+import { useFlex } from '../../hooks/useFlex';
 import type { FlexProps } from '../../types/flex';
 
 type Props = ComponentPropsWithRef<'div'> & FlexProps;
 
-export const Flex: FC<Props> = () => {
-  return <div>{/* Your component implementation */}</div>;
-};
+export const Flex = forwardRef<HTMLDivElement, Props>(
+  ({ children, ...props }, ref) => {
+    const flexStyle = useFlex(props);
+
+    return (
+      <div ref={ref} style={flexStyle} {...props}>
+        {children}
+      </div>
+    );
+  },
+);
