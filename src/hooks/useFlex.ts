@@ -1,4 +1,5 @@
 import { type CSSProperties, useMemo } from 'react';
+
 import type {
   Align,
   FlexDirection,
@@ -18,10 +19,12 @@ export const useFlex = ({
   flexGrow,
   flexShrink,
   flexWrap,
+  gap,
   justifyContent,
 }: FlexProps): CSSProperties => {
   return useMemo(
     () => ({
+      display: 'flex',
       alignContent: valueOrUndefined<Align>(alignContent),
       alignItems: valueOrUndefined<Align>(alignItems),
       alignSelf: valueOrUndefined<Align>(alignSelf),
@@ -31,6 +34,7 @@ export const useFlex = ({
       flexGrow: valueOrUndefined(flexGrow),
       flexShrink: valueOrUndefined(flexShrink),
       flexWrap: valueOrUndefined<FlexWrap>(flexWrap),
+      gap: gap ? `${gap}px` : undefined,
       justifyContent: valueOrUndefined<JustifyContent>(justifyContent),
     }),
     [
@@ -43,6 +47,7 @@ export const useFlex = ({
       flexGrow,
       flexShrink,
       flexWrap,
+      gap,
       justifyContent,
     ],
   );
