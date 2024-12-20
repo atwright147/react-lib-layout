@@ -3,9 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "main": "./dist/react-layout.umd.cjs",
   "module": "./dist/react-layout.js",
   "types": "./dist/index.d.ts",
@@ -18,11 +16,11 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build:lib": "tsc -p tsconfig.lib.json && vite build",
     "lint": "eslint .",
+    "build:demo": "tsc && vite build",
     "storybook": "storybook dev -p 6006",
-    "preview": "vite preview",
-    "build:lib": "vite build && tsc --emitDeclarationFiles true --declaration true"
+    "preview": "vite preview"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

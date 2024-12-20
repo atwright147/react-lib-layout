@@ -1,6 +1,6 @@
-import { defineConfig } from 'vite';
+import path from 'node:path';
 import react from '@vitejs/plugin-react-swc';
-import path from 'path';
+import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
@@ -8,22 +8,23 @@ export default defineConfig({
     react(),
     dts({
       insertTypesEntry: true,
-    })
+      tsconfigPath: './tsconfig.lib.json',
+    }),
   ],
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/index.ts'),
+      entry: path.resolve(__dirname, 'lib/index.ts'),
       name: 'ReactLayout',
-      fileName: (format) => `react-layout.${format}.js`
+      fileName: (format) => `react-layout.${format}.js`,
     },
     rollupOptions: {
       external: ['react', 'react-dom'],
       output: {
         globals: {
           react: 'React',
-          'react-dom': 'ReactDOM'
-        }
-      }
-    }
-  }
-})
+          'react-dom': 'ReactDOM',
+        },
+      },
+    },
+  },
+});

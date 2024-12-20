@@ -1,6 +1,6 @@
 import { type ComponentPropsWithRef, forwardRef } from 'react';
-import { useFlex } from '../../hooks/useFlex';
-import type { FlexProps } from '../../types/flex';
+import { useFlex } from '../../../lib/hooks/useFlex';
+import type { FlexProps } from '../../../lib/types/flex';
 
 export type Props = ComponentPropsWithRef<'div'> & FlexProps;
 
