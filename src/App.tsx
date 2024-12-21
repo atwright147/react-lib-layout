@@ -2,7 +2,7 @@ import { Flex } from '../lib/components/Flex/Flex';
 
 import './App.css';
 
-function App() {
+export const App = (): JSX.Element => {
   return (
     <div className="App">
       <h1>React Layout</h1>
@@ -15,6 +15,4 @@ function App() {
       </Flex>
     </div>
   );
-}
-
-export default App;
+};

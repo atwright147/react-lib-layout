@@ -20,7 +20,8 @@
     "lint": "eslint .",
     "build:demo": "tsc && vite build --mode demo",
     "preview": "vite preview --mode demo",
-    "storybook": "storybook dev -p 6006"
+    "storybook": "storybook dev -p 6006",
+    "typecheck": "tsc --noEmit"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

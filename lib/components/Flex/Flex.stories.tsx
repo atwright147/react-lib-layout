@@ -56,4 +56,4 @@ export const JustifyCenter = (args: Props) => (
 export const AlignCenter = (args: Props) => (
   <Flex alignItems="center" {...args} />
 );
-export const Gap = (args: Props) => <Flex gap={10} {...args} />;
+export const Gap = (args: Props) => <Flex gap="10px" {...args} />;

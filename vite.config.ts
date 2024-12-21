@@ -9,7 +9,6 @@ export default defineConfig(({ command, mode }) => {
     // Config for demo site
     return {
       plugins: [react()],
-      root: 'src',
     };
   }
 
