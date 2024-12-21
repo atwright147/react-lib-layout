@@ -34,7 +34,7 @@ export const useFlex = ({
       flexGrow: valueOrUndefined(flexGrow),
       flexShrink: valueOrUndefined(flexShrink),
       flexWrap: valueOrUndefined<FlexWrap>(flexWrap),
-      gap: gap ? `${gap}px` : undefined,
+      gap: valueOrUndefined<string>(gap),
       justifyContent: valueOrUndefined<JustifyContent>(justifyContent),
     }),
     [

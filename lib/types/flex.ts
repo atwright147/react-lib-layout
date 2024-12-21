@@ -30,6 +30,6 @@ export type FlexProps = Partial<{
   flexGrow: number;
   flexShrink: number;
   flexWrap: FlexWrap;
-  gap: number;
+  gap: string;
   justifyContent: JustifyContent;
 }>;

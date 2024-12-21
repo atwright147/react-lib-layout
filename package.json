@@ -18,9 +18,9 @@
     "dev": "vite",
     "build:lib": "tsc -p tsconfig.lib.json && vite build",
     "lint": "eslint .",
-    "build:demo": "tsc && vite build",
-    "storybook": "storybook dev -p 6006",
-    "preview": "vite preview"
+    "build:demo": "tsc && vite build --mode demo",
+    "preview": "vite preview --mode demo",
+    "storybook": "storybook dev -p 6006"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
