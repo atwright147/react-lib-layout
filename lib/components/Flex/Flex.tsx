@@ -1,3 +1,4 @@
+import { forwardRef } from 'react';
 import type { ComponentPropsWithRef } from 'react';
 
 import { useFlex } from '../../../lib/hooks/useFlex';
@@ -12,17 +13,20 @@ export type FlexOwnProps<E extends React.ElementType> =
 type Props<E extends React.ElementType> = FlexOwnProps<E> &
   Omit<React.ComponentProps<E>, keyof FlexOwnProps<E>>;
 
-export const Flex = <E extends React.ElementType = 'div'>({
-  as,
-  children,
-  ...props
-}: Props<E>) => {
-  const flexStyle = useFlex(props);
-  const Component = as || 'div';
+export const Flex = forwardRef(
+  <E extends React.ElementType = 'div'>(
+    { as, children, ...props }: Props<E>,
+    ref: React.ForwardedRef<Element>,
+  ) => {
+    const flexStyle = useFlex(props);
+    const Component = as || 'div';
 
-  return (
-    <Component style={flexStyle} {...props}>
-      {children}
-    </Component>
-  );
-};
+    return (
+      <Component ref={ref} style={flexStyle} {...props}>
+        {children}
+      </Component>
+    );
+  },
+);
+
+Flex.displayName = 'Flex';
