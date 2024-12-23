@@ -30,8 +30,8 @@ export const App = (): JSX.Element => {
 
       <hr />
 
-      <Box as="article" className="xxx">
-        Text
+      <Box as="article" className="custom-class">
+        Box as Article
       </Box>
     </div>
   );
