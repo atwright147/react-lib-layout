@@ -1,6 +1,5 @@
 import { Box } from '../lib/components/Box/Box';
 import { Flex } from '../lib/components/Flex/Flex';
-import { Text } from '../lib/components/Text/Text';
 
 import './App.css';
 
