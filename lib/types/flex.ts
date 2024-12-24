@@ -18,7 +18,32 @@ export type Align =
   | 'space-between'
   | 'stretch';
 
+export type AlignSelf =
+  | 'auto'
+  | 'flex-start'
+  | 'flex-end'
+  | 'center'
+  | 'baseline'
+  | 'stretch';
+
+export type Flex = 'none' | 'flex-grow' | 'flex-shrink' | 'flex-basis';
+
 export type FlexWrap = 'nowrap' | 'wrap' | 'wrap-reverse';
+
+export type FlexBasis =
+  | 'auto'
+  | 'min-content'
+  | 'max-content'
+  | 'fit-content'
+  | string;
+
+export type FlexGrowAndShrink =
+  | 'inherit'
+  | 'initial'
+  | 'revert'
+  | 'revert-layer'
+  | 'unset'
+  | number;
 
 export type FlexProps = Partial<{
   alignContent: Align;
@@ -32,4 +57,13 @@ export type FlexProps = Partial<{
   flexWrap: FlexWrap;
   gap: string;
   justifyContent: JustifyContent;
+}>;
+
+export type FlexItemProps = Partial<{
+  alignSelf: AlignSelf;
+  flex: Flex;
+  flexBasis: FlexBasis;
+  flexGrow: FlexGrowAndShrink;
+  flexShrink: FlexGrowAndShrink;
+  order: number;
 }>;
