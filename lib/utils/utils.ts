@@ -1,3 +1,9 @@
-export const valueOrUndefined = <T>(value: T | undefined): T | undefined => {
-  return value ? (`${value}` as T) : undefined;
+export const valueOrUndefined = <T>(
+  value: T | undefined,
+): string | undefined => {
+  if (Array.isArray(value)) {
+    return value.join(' ');
+  }
+
+  return value ? `${value}` : undefined;
 };
