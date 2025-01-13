@@ -37,5 +37,33 @@ export default defineConfig(({ command, mode }) => {
         },
       },
     },
+    test: {
+      globals: true,
+      environment: 'jsdom',
+      setupFiles: './tests/setup.ts',
+      coverage: {
+        provider: 'v8',
+        reporter: ['text', 'html', 'clover', 'json', 'lcov'],
+        exclude: ['demos/**', 'scripts/**'],
+      },
+      css: {
+        modules: {
+          classNameStrategy: 'non-scoped',
+        },
+      },
+    },
+    css: {
+      preprocessorOptions: {
+        scss: {
+          api: 'modern-compiler', // or "modern", "legacy"
+          importers: [],
+        },
+      },
+    },
+    resolve: {
+      alias: {
+        '@': path.resolve(__dirname, './src'),
+      },
+    },
   };
 });
