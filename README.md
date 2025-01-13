@@ -7,8 +7,10 @@ This library provides a layout component for React applications.
 To install the library, run:
 
 ```sh
-npm i react-lib-layout
+npm i @atwright147/react-layout
 ```
+
+---
 
 ## Development
 
