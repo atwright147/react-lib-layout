@@ -45,15 +45,17 @@ export default {
   },
 };
 
-export const Default = (args: Props) => <Flex {...args} />;
-export const Row = (args: Props) => <Flex flexDirection="row" {...args} />;
-export const Column = (args: Props) => (
+export const Default = (args: Props<'div'>) => <Flex {...args} />;
+export const Row = (args: Props<'div'>) => (
+  <Flex flexDirection="row" {...args} />
+);
+export const Column = (args: Props<'div'>) => (
   <Flex flexDirection="column" {...args} />
 );
-export const JustifyCenter = (args: Props) => (
+export const JustifyCenter = (args: Props<'div'>) => (
   <Flex justifyContent="center" {...args} />
 );
-export const AlignCenter = (args: Props) => (
+export const AlignCenter = (args: Props<'div'>) => (
   <Flex alignItems="center" {...args} />
 );
-export const Gap = (args: Props) => <Flex gap="10px" {...args} />;
+export const Gap = (args: Props<'div'>) => <Flex gap="10px" {...args} />;

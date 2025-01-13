@@ -10,7 +10,7 @@ export type GridOwnProps<E extends React.ElementType> =
       as?: E;
     };
 
-type Props<E extends React.ElementType> = GridOwnProps<E> &
+export type Props<E extends React.ElementType> = GridOwnProps<E> &
   Omit<React.ComponentProps<E>, keyof GridOwnProps<E>>;
 
 export const Grid = forwardRef(

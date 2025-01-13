@@ -10,7 +10,7 @@ export type FlexOwnProps<E extends React.ElementType> =
       as?: E;
     };
 
-type Props<E extends React.ElementType> = FlexOwnProps<E> &
+export type Props<E extends React.ElementType> = FlexOwnProps<E> &
   Omit<React.ComponentProps<E>, keyof FlexOwnProps<E>>;
 
 export const Flex = forwardRef(

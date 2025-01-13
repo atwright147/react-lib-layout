@@ -30,10 +30,13 @@ export const useFlex = ({
       alignSelf: valueOrUndefined<Align>(alignSelf),
       flex: valueOrUndefined(flex),
       flexBasis: valueOrUndefined(flexBasis),
-      flexDirection: valueOrUndefined<FlexDirection>(flexDirection),
+      flexDirection: valueOrUndefined<
+        FlexDirection,
+        CSSProperties['flexDirection']
+      >(flexDirection),
       flexGrow: valueOrUndefined(flexGrow),
       flexShrink: valueOrUndefined(flexShrink),
-      flexWrap: valueOrUndefined<FlexWrap>(flexWrap),
+      flexWrap: valueOrUndefined<FlexWrap, CSSProperties['flexWrap']>(flexWrap),
       gap: valueOrUndefined<string>(gap),
       justifyContent: valueOrUndefined<JustifyContent>(justifyContent),
     }),
