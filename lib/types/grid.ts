@@ -40,7 +40,7 @@ export type GridContainerProps = Partial<{
   rowGap: StringOrNumber;
 }>;
 
-export type GridItem = Partial<{
+export type GridItemProps = Partial<{
   alignSelf: AlignAndJustify;
   gridArea: string;
   gridColumn: string;

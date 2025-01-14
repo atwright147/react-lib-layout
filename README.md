@@ -1,14 +1,16 @@
-# React Lib Layout
+# React Layout
 
-This library provides a layout component for React applications.
+Layout components for React applications.
 
-## Use the lib
+## Install
 
 To install the library, run:
 
 ```sh
-npm i react-lib-layout
+npm i @atwright147/react-layout
 ```
+
+---
 
 ## Development
 

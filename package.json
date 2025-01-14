@@ -1,14 +1,9 @@
 {
-  "name": "react-lib-layout",
-  "private": true,
-  "version": "0.0.0",
+  "name": "@atwright147/react-layout",
+  "version": "0.0.2",
+  "private": false,
   "type": "module",
-  "files": [
-    "dist"
-  ],
-  "main": "./dist/react-layout.umd.cjs",
   "module": "./dist/react-layout.js",
-  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -16,6 +11,12 @@
       "require": "./dist/react-layout.umd.cjs"
     }
   },
+  "main": "./dist/react-layout.umd.cjs",
+  "types": "./dist/index.d.ts",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": ["dist"],
   "scripts": {
     "dev": "vite",
     "test": "vitest --",
@@ -26,6 +27,7 @@
     "storybook": "storybook dev -p 6006",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {},
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@storybook/builder-vite": "^8.4.7",
@@ -48,5 +50,19 @@
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "Layout components for React applications",
+  "homepage": "https://github.com/atwright147/react-lib-layout#readme",
+  "bugs": {
+    "url": "https://github.com/atwright147/react-lib-layout/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/atwright147/react-lib-layout.git"
+  },
+  "license": "MIT",
+  "author": "Andy Wright <atwright147@gmail.com>"
 }

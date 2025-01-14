@@ -1,9 +1,15 @@
-import { Box } from '../lib/components/Box/Box';
 import { Flex } from '../lib/components/Flex/Flex';
 import { FlexItem } from '../lib/components/FlexItem/FlexItem';
 import { Grid } from '../lib/components/Grid/Grid';
+import { GridItem } from '../lib/components/GridItem/GridItem';
 
 import './App.css';
+
+const styles: React.CSSProperties = {
+  border: '2px solid #ccc',
+  boxSizing: 'border-box',
+  padding: '10px',
+};
 
 export const App = (): JSX.Element => {
   return (
@@ -17,15 +23,9 @@ export const App = (): JSX.Element => {
           Default <code>as</code> prop
         </h3>
         <Flex gap="10px">
-          <FlexItem style={{ outline: '1px solid #ccc', width: '100%' }}>
-            1
-          </FlexItem>
-          <FlexItem style={{ outline: '1px solid #ccc', width: '100%' }}>
-            2
-          </FlexItem>
-          <FlexItem style={{ outline: '1px solid #ccc', width: '100%' }}>
-            3
-          </FlexItem>
+          <FlexItem style={{ ...styles, width: '100%' }}>1</FlexItem>
+          <FlexItem style={{ ...styles, width: '100%' }}>2</FlexItem>
+          <FlexItem style={{ ...styles, width: '100%' }}>3</FlexItem>
         </Flex>
         <h3>
           Custom <code>as</code> prop
@@ -36,30 +36,17 @@ export const App = (): JSX.Element => {
           justifyContent="space-between"
           style={{ outline: '1px solid red', outlineOffset: '5px' }}
         >
-          <FlexItem style={{ outline: '1px solid #ccc', minWidth: '200px' }}>
-            1
-          </FlexItem>
-          <FlexItem style={{ outline: '1px solid #ccc', minWidth: '200px' }}>
-            2
-          </FlexItem>
-          <FlexItem style={{ outline: '1px solid #ccc', minWidth: '200px' }}>
-            3
-          </FlexItem>
+          <FlexItem style={{ ...styles, minWidth: '200px' }}>1</FlexItem>
+          <FlexItem style={{ ...styles, minWidth: '200px' }}>2</FlexItem>
+          <FlexItem style={{ ...styles, minWidth: '200px' }}>3</FlexItem>
         </Flex>
         <h3>
           Flex with FlexItems (using <code>order</code>)
         </h3>
         <Flex gap="10px">
-          <FlexItem style={{ outline: '1px solid #ccc', width: '100%' }}>
-            1
-          </FlexItem>
-          <FlexItem style={{ outline: '1px solid #ccc', width: '100%' }}>
-            2
-          </FlexItem>
-          <FlexItem
-            style={{ outline: '1px solid #ccc', width: '100%' }}
-            order={-1}
-          >
+          <FlexItem style={{ ...styles, width: '100%' }}>1</FlexItem>
+          <FlexItem style={{ ...styles, width: '100%' }}>2</FlexItem>
+          <FlexItem style={{ ...styles, width: '100%' }} order={-1}>
             3
           </FlexItem>
         </Flex>
@@ -69,9 +56,23 @@ export const App = (): JSX.Element => {
 
       <details>
         <Grid gap="10px" gridTemplateColumns={['1fr', '2fr', '1fr']}>
-          <Box style={{ outline: '1px solid #ccc' }}>1</Box>
-          <Box style={{ outline: '1px solid #ccc' }}>2</Box>
-          <Box style={{ outline: '1px solid #ccc' }}>3</Box>
+          <GridItem style={{ ...styles }}>1</GridItem>
+          <GridItem style={{ ...styles }}>2</GridItem>
+          <GridItem style={{ ...styles }}>3</GridItem>
+        </Grid>
+
+        <Grid
+          gap="10px"
+          gridTemplateColumns="repeat(12, 1fr)"
+          gridTemplateRows="repeat(5, 50px)"
+        >
+          <GridItem gridColumnStart={2} gridColumnEnd={6} style={{ ...styles }}>
+            1
+          </GridItem>
+          <GridItem gridRowStart={1} gridRowEnd={5} style={{ ...styles }}>
+            2
+          </GridItem>
+          <GridItem style={{ ...styles }}>3</GridItem>
         </Grid>
       </details>
     </div>
