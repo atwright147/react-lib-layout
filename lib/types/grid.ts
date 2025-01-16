@@ -1,54 +1,36 @@
+import type { CSSProperties } from 'react';
+
 export type Display = 'grid' | 'inline-grid';
-export type StringOrNumber = string | number;
-export type TrackSize =
-  | StringOrNumber
-  | 'auto'
-  | 'fit-content'
-  | 'max-content'
-  | 'min-content'
-  | 'minmax()';
-export type GridLine = string | number | 'auto' | 'span';
-export type PositionAndSpacing =
-  | 'center'
-  | 'end'
-  | 'space-around'
-  | 'space-between'
-  | 'space-evenly'
-  | 'start'
-  | 'stretch';
-export type AlignAndJustify = 'start' | 'end' | 'center' | 'stretch';
-export type Gap = StringOrNumber | [StringOrNumber, StringOrNumber];
-export type Flow = 'row' | 'column' | 'row dense' | 'column dense';
 
 export type GridContainerProps = Partial<{
   display: Display;
-  alignContent: PositionAndSpacing;
-  alignItems: AlignAndJustify;
-  columnGap: StringOrNumber;
-  gap: Gap;
-  gridAutoColumns: TrackSize;
-  gridAutoFlow: Flow;
-  gridAutoRows: TrackSize;
-  gridTemplate: string;
-  gridTemplateAreas: string | string[];
-  gridTemplateColumns: TrackSize | TrackSize[];
-  gridTemplateRows: TrackSize | TrackSize[];
-  justifyContent: PositionAndSpacing;
-  justifyItems: AlignAndJustify;
-  placeContent: string;
-  placeItems: string;
-  rowGap: StringOrNumber;
+  alignContent: CSSProperties['alignContent'];
+  alignItems: CSSProperties['alignItems'];
+  columnGap: CSSProperties['columnGap'];
+  gap: CSSProperties['gap'];
+  gridAutoColumns: CSSProperties['gridAutoColumns'];
+  gridAutoFlow: CSSProperties['gridAutoFlow'];
+  gridAutoRows: CSSProperties['gridAutoRows'];
+  gridTemplate: CSSProperties['gridTemplate'];
+  gridTemplateAreas: CSSProperties['gridTemplateAreas'];
+  gridTemplateColumns: CSSProperties['gridTemplateColumns'];
+  gridTemplateRows: CSSProperties['gridTemplateRows'];
+  justifyContent: CSSProperties['justifyContent'];
+  justifyItems: CSSProperties['justifyItems'];
+  placeContent: CSSProperties['placeContent'];
+  placeItems: CSSProperties['placeItems'];
+  rowGap: CSSProperties['rowGap'];
 }>;
 
 export type GridItemProps = Partial<{
-  alignSelf: AlignAndJustify;
-  gridArea: string;
-  gridColumn: string;
-  gridColumnEnd: GridLine;
-  gridColumnStart: GridLine;
-  gridRow: string;
-  gridRowEnd: GridLine;
-  gridRowStart: GridLine;
-  justifySelf: AlignAndJustify;
-  placeSelf: string;
+  alignSelf: CSSProperties['alignSelf'];
+  gridArea: CSSProperties['gridArea'];
+  gridColumn: CSSProperties['gridColumn'];
+  gridColumnEnd: CSSProperties['gridColumnEnd'];
+  gridColumnStart: CSSProperties['gridColumnStart'];
+  gridRow: CSSProperties['gridRow'];
+  gridRowEnd: CSSProperties['gridRowEnd'];
+  gridRowStart: CSSProperties['gridRowStart'];
+  justifySelf: CSSProperties['justifySelf'];
+  placeSelf: CSSProperties['placeSelf'];
 }>;

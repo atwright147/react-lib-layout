@@ -1,6 +1,6 @@
 import { type CSSProperties, useMemo } from 'react';
 
-import type { AlignAndJustify, GridItemProps, GridLine } from '../types/grid';
+import type { GridItemProps } from '../types/grid';
 import { valueOrUndefined } from '../utils/utils';
 
 export const useGridItem = ({
@@ -17,16 +17,19 @@ export const useGridItem = ({
 }: GridItemProps): CSSProperties => {
   return useMemo(
     () => ({
-      alignSelf: valueOrUndefined<AlignAndJustify>(alignSelf),
-      gridArea: valueOrUndefined(gridArea),
-      gridColumn: valueOrUndefined(gridColumn),
-      gridColumnEnd: valueOrUndefined<GridLine>(gridColumnEnd),
-      gridColumnStart: valueOrUndefined<GridLine>(gridColumnStart),
-      gridRow: valueOrUndefined(gridRow),
-      gridRowEnd: valueOrUndefined<GridLine>(gridRowEnd),
-      gridRowStart: valueOrUndefined<GridLine>(gridRowStart),
-      justifySelf: valueOrUndefined<AlignAndJustify>(justifySelf),
-      placeSelf: valueOrUndefined(placeSelf),
+      alignSelf: valueOrUndefined<CSSProperties['alignSelf']>(alignSelf),
+      gridArea: valueOrUndefined<CSSProperties['gridArea']>(gridArea),
+      gridColumn: valueOrUndefined<CSSProperties['gridColumn']>(gridColumn),
+      gridColumnEnd:
+        valueOrUndefined<CSSProperties['gridColumnEnd']>(gridColumnEnd),
+      gridColumnStart:
+        valueOrUndefined<CSSProperties['gridColumnStart']>(gridColumnStart),
+      gridRow: valueOrUndefined<CSSProperties['gridRow']>(gridRow),
+      gridRowEnd: valueOrUndefined<CSSProperties['gridRowEnd']>(gridRowEnd),
+      gridRowStart:
+        valueOrUndefined<CSSProperties['gridRowStart']>(gridRowStart),
+      justifySelf: valueOrUndefined<CSSProperties['justifySelf']>(justifySelf),
+      placeSelf: valueOrUndefined<CSSProperties['placeSelf']>(placeSelf),
     }),
     [
       alignSelf,

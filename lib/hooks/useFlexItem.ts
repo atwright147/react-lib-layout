@@ -1,12 +1,6 @@
 import { type CSSProperties, useMemo } from 'react';
 
-import type {
-  AlignSelf,
-  Flex,
-  FlexBasis,
-  FlexGrowAndShrink,
-  FlexItemProps,
-} from '../types/flex';
+import type { FlexItemProps } from '../types/flex';
 import { valueOrUndefined } from '../utils/utils';
 
 export const useFlexItem = ({
@@ -19,12 +13,12 @@ export const useFlexItem = ({
 }: FlexItemProps): CSSProperties => {
   return useMemo(
     () => ({
-      alignSelf: valueOrUndefined<AlignSelf>(alignSelf),
-      flex: valueOrUndefined<Flex>(flex),
-      flexBasis: valueOrUndefined<FlexBasis>(flexBasis),
-      flexGrow: valueOrUndefined<FlexGrowAndShrink>(flexGrow),
-      flexShrink: valueOrUndefined<FlexGrowAndShrink>(flexShrink),
-      order: valueOrUndefined<number>(order),
+      alignSelf: valueOrUndefined<CSSProperties['alignSelf']>(alignSelf),
+      flex: valueOrUndefined<CSSProperties['flex']>(flex),
+      flexBasis: valueOrUndefined<CSSProperties['flexBasis']>(flexBasis),
+      flexGrow: valueOrUndefined<CSSProperties['flexGrow']>(flexGrow),
+      flexShrink: valueOrUndefined<CSSProperties['flexShrink']>(flexShrink),
+      order: valueOrUndefined<CSSProperties['order']>(order),
     }),
     [alignSelf, flex, flexBasis, flexGrow, flexShrink, order],
   );
