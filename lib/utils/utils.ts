@@ -1,9 +1,7 @@
-export const valueOrUndefined = <V, R = string>(
-  value: V | undefined,
-): R | undefined => {
+export const valueOrUndefined = <T>(value: T): T => {
   if (Array.isArray(value)) {
-    return value.join(' ') as R;
+    return value.join(' ') as T;
   }
 
-  return value ? (`${value}` as R) : undefined;
+  return value;
 };
