@@ -1,17 +1,17 @@
 {
   "name": "@atwright147/react-layout",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "type": "module",
-  "module": "./dist/react-layout.js",
+  "module": "./dist/react-layout.es.js",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/react-layout.js",
-      "require": "./dist/react-layout.umd.cjs"
+      "import": "./dist/react-layout.es.js",
+      "require": "./dist/react-layout.umd.js"
     }
   },
-  "main": "./dist/react-layout.umd.cjs",
+  "main": "./dist/react-layout.umd.js",
   "types": "./dist/index.d.ts",
   "directories": {
     "lib": "lib"
