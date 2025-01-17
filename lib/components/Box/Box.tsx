@@ -1,28 +1,26 @@
-// https://youtu.be/uZ8GZm5KEXY?si=vKop2auiF1Is39rw
+import type { ComponentProps, ElementType } from 'react';
 
-import { type ComponentPropsWithRef, forwardRef } from 'react';
+// Type definitions
+export type BoxOwnProps<E extends ElementType> = ComponentProps<'div'> & {
+  as?: E;
+  ref?: React.Ref<Element>;
+};
 
-export type BoxOwnProps<E extends React.ElementType> =
-  ComponentPropsWithRef<'div'> & {
-    as?: E;
-  };
+type BoxProps<E extends ElementType> = BoxOwnProps<E> &
+  Omit<ComponentProps<E>, keyof BoxOwnProps<E>>;
 
-type BoxProps<E extends React.ElementType> = BoxOwnProps<E> &
-  Omit<React.ComponentProps<E>, keyof BoxOwnProps<E>>;
+// Component definition
+export function Box<E extends ElementType = 'div'>({
+  as,
+  children,
+  ref,
+  ...props
+}: BoxProps<E>) {
+  const Component = as || 'div';
 
-export const Box = forwardRef(
-  <E extends React.ElementType = 'div'>(
-    { as, children, ...props }: BoxProps<E>,
-    ref: React.ForwardedRef<Element>,
-  ) => {
-    const Component = as || 'div';
-
-    return (
-      <Component ref={ref} {...props}>
-        {children}
-      </Component>
-    );
-  },
-);
-
-Box.displayName = 'Box';
+  return (
+    <Component ref={ref} {...props}>
+      {children}
+    </Component>
+  );
+}

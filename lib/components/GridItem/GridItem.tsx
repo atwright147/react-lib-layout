@@ -1,58 +1,54 @@
-import { forwardRef } from 'react';
-import type { ComponentPropsWithRef } from 'react';
+import type { ComponentProps, ElementType } from 'react';
 
 import { useGridItem } from '../../../lib/hooks/useGridItem';
 import type { GridContainerProps } from '../../../lib/types/grid';
 
-export type GridItemOwnProps<E extends React.ElementType> =
-  ComponentPropsWithRef<'div'> &
-    GridContainerProps & {
-      as?: E;
-    };
+// Type definitions
+export type GridItemOwnProps<E extends ElementType> = ComponentProps<'div'> &
+  GridContainerProps & {
+    as?: E;
+    ref?: React.Ref<Element>;
+  };
 
-export type Props<E extends React.ElementType> = GridItemOwnProps<E> &
-  Omit<React.ComponentProps<E>, keyof GridItemOwnProps<E>>;
+export type Props<E extends ElementType> = GridItemOwnProps<E> &
+  Omit<ComponentProps<E>, keyof GridItemOwnProps<E>>;
 
-export const GridItem = forwardRef(
-  <E extends React.ElementType = 'div'>(
-    {
-      as,
-      children,
-      alignSelf,
-      gridArea,
-      gridColumn,
-      gridColumnEnd,
-      gridColumnStart,
-      gridRow,
-      gridRowEnd,
-      gridRowStart,
-      justifySelf,
-      placeSelf,
-      style,
-      ...props
-    }: Props<E>,
-    ref: React.ForwardedRef<Element>,
-  ) => {
-    const gridItemStyle = useGridItem({
-      alignSelf,
-      gridArea,
-      gridColumn,
-      gridColumnEnd,
-      gridColumnStart,
-      gridRow,
-      gridRowEnd,
-      gridRowStart,
-      justifySelf,
-      placeSelf,
-    });
-    const Component = as || 'div';
+// Component definition
+export function GridItem<E extends ElementType = 'div'>({
+  as,
+  children,
+  alignSelf,
+  gridArea,
+  gridColumn,
+  gridColumnEnd,
+  gridColumnStart,
+  gridRow,
+  gridRowEnd,
+  gridRowStart,
+  justifySelf,
+  placeSelf,
+  style,
+  ref,
+  ...props
+}: Props<E>) {
+  const gridItemStyle = useGridItem({
+    alignSelf,
+    gridArea,
+    gridColumn,
+    gridColumnEnd,
+    gridColumnStart,
+    gridRow,
+    gridRowEnd,
+    gridRowStart,
+    justifySelf,
+    placeSelf,
+  });
 
-    return (
-      <Component ref={ref} style={{ ...style, ...gridItemStyle }} {...props}>
-        {children}
-      </Component>
-    );
-  },
-);
+  const Component = as || 'div';
 
-GridItem.displayName = 'GridItem';
+  return (
+    <Component ref={ref} style={{ ...style, ...gridItemStyle }} {...props}>
+      {children}
+    </Component>
+  );
+}

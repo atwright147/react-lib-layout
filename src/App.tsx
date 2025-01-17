@@ -1,3 +1,4 @@
+import type { JSX } from 'react';
 import { Flex } from '../lib/components/Flex/Flex';
 import { FlexItem } from '../lib/components/FlexItem/FlexItem';
 import { Grid } from '../lib/components/Grid/Grid';
@@ -18,12 +19,20 @@ export const App = (): JSX.Element => {
 
       <h2>Flex Component</h2>
 
+      <Flex>
+        <FlexItem as="nav" style={{ ...styles, width: '100%' }}>
+          1
+        </FlexItem>
+      </Flex>
+
       <details>
         <h3>
           Default <code>as</code> prop
         </h3>
         <Flex gap="10px">
-          <FlexItem style={{ ...styles, width: '100%' }}>1</FlexItem>
+          <FlexItem as="div" style={{ ...styles, width: '100%' }}>
+            1
+          </FlexItem>
           <FlexItem style={{ ...styles, width: '100%' }}>2</FlexItem>
           <FlexItem style={{ ...styles, width: '100%' }}>3</FlexItem>
         </Flex>
@@ -62,6 +71,7 @@ export const App = (): JSX.Element => {
         </Grid>
 
         <Grid
+          as="section"
           gap="10px"
           gridTemplateColumns="repeat(12, 1fr)"
           gridTemplateRows="repeat(5, 50px)"

@@ -1,60 +1,56 @@
-import { forwardRef } from 'react';
-import type { ComponentPropsWithRef } from 'react';
+import type { ComponentProps, ElementType } from 'react';
 
 import { useFlex } from '../../../lib/hooks/useFlex';
 import type { FlexProps } from '../../../lib/types/flex';
 
-export type FlexOwnProps<E extends React.ElementType> =
-  ComponentPropsWithRef<'div'> &
-    FlexProps & {
-      as?: E;
-    };
+// Type definitions
+export type FlexOwnProps<E extends ElementType> = ComponentProps<'div'> &
+  FlexProps & {
+    as?: E;
+    ref?: React.Ref<Element>;
+  };
 
-export type Props<E extends React.ElementType> = FlexOwnProps<E> &
-  Omit<React.ComponentProps<E>, keyof FlexOwnProps<E>>;
+export type Props<E extends ElementType> = FlexOwnProps<E> &
+  Omit<ComponentProps<E>, keyof FlexOwnProps<E>>;
 
-export const Flex = forwardRef(
-  <E extends React.ElementType = 'div'>(
-    {
-      as,
-      children,
-      alignContent,
-      alignItems,
-      alignSelf,
-      flex,
-      flexBasis,
-      flexDirection,
-      flexGrow,
-      flexShrink,
-      flexWrap,
-      gap,
-      justifyContent,
-      style,
-      ...props
-    }: Props<E>,
-    ref: React.ForwardedRef<Element>,
-  ) => {
-    const flexStyle = useFlex({
-      alignContent,
-      alignItems,
-      alignSelf,
-      flex,
-      flexBasis,
-      flexDirection,
-      flexGrow,
-      flexShrink,
-      flexWrap,
-      gap,
-      justifyContent,
-    });
-    const Component = as || 'div';
+// Component definition
+export function Flex<E extends ElementType = 'div'>({
+  as,
+  children,
+  alignContent,
+  alignItems,
+  alignSelf,
+  flex,
+  flexBasis,
+  flexDirection,
+  flexGrow,
+  flexShrink,
+  flexWrap,
+  gap,
+  justifyContent,
+  style,
+  ref,
+  ...props
+}: Props<E>) {
+  const flexStyle = useFlex({
+    alignContent,
+    alignItems,
+    alignSelf,
+    flex,
+    flexBasis,
+    flexDirection,
+    flexGrow,
+    flexShrink,
+    flexWrap,
+    gap,
+    justifyContent,
+  });
 
-    return (
-      <Component ref={ref} style={{ ...style, ...flexStyle }} {...props}>
-        {children}
-      </Component>
-    );
-  },
-);
+  const Component = as || 'div';
 
-Flex.displayName = 'Flex';
+  return (
+    <Component ref={ref} style={{ ...style, ...flexStyle }} {...props}>
+      {children}
+    </Component>
+  );
+}
