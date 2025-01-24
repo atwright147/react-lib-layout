@@ -64,7 +64,7 @@ export const App = (): JSX.Element => {
       <h3>Grid</h3>
 
       <details>
-        <Grid gap="10px" gridTemplateColumns={['1fr', '2fr', '1fr']}>
+        <Grid gap="10px" gridTemplateColumns="repeat(3, 1fr)">
           <GridItem style={{ ...styles }}>1</GridItem>
           <GridItem style={{ ...styles }}>2</GridItem>
           <GridItem style={{ ...styles }}>3</GridItem>

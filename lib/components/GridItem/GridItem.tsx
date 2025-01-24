@@ -1,14 +1,14 @@
 import type { ComponentProps, ElementType } from 'react';
 
 import { useGridItem } from '../../../lib/hooks/useGridItem';
-import type { GridContainerProps } from '../../../lib/types/grid';
+import type { GridItemProps } from '../../../lib/types/grid';
 
 // Type definitions
-export type GridItemOwnProps<E extends ElementType> = ComponentProps<'div'> &
-  GridContainerProps & {
-    as?: E;
-    ref?: React.Ref<Element>;
-  };
+export type GridItemOwnProps<E extends ElementType> = {
+  as?: E;
+  ref?: React.Ref<Element>;
+} & GridItemProps &
+  ComponentProps<'div'>;
 
 export type Props<E extends ElementType> = GridItemOwnProps<E> &
   Omit<ComponentProps<E>, keyof GridItemOwnProps<E>>;

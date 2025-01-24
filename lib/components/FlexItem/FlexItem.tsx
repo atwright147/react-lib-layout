@@ -3,11 +3,11 @@ import type { ComponentProps, ElementType } from 'react';
 import { useFlexItem } from '../../hooks/useFlexItem';
 import type { FlexItemProps } from '../../types/flex';
 
-export type FlexOwnProps<E extends ElementType> = ComponentProps<'div'> &
-  FlexItemProps & {
-    as?: E;
-    ref?: React.Ref<Element>;
-  };
+export type FlexOwnProps<E extends ElementType> = {
+  as?: E;
+  ref?: React.Ref<Element>;
+} & FlexItemProps &
+  ComponentProps<'div'>;
 
 type Props<E extends React.ElementType> = FlexOwnProps<E> &
   Omit<React.ComponentProps<E>, keyof FlexOwnProps<E>>;
